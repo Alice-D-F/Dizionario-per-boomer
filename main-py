@@ -1,0 +1,38 @@
+meme = {
+    "CRINGE": "Qualcosa di imbarazzante e/o disagiante (a livello sociale)",
+    "LOL": "Esclamazione per qualcosa di divertente",
+    "LMAO": "Simile a LOL ma usato per qualcosa di più divertente"
+}
+
+ass_utente =[
+    "Hai scritto tutto maiuscolo",
+    "Hai controllato che lo spelling sia corretto"
+    ]
+
+
+
+def servizio_dizionario():
+    global meme
+    global ass_utente
+    parola= input("Scrivi una parola che non capisci (usando solo lettere maiuscole)")
+    if parola in meme.keys():
+        print(parola, meme[parola])
+    else:
+        print("Controllate che le seguenti indicative siano state eseguite (scrivere se si o no)")
+        for i in range(len(ass_utente)):
+            print(ass_utente[i])
+            prob = input()
+            if prob == "no":
+                print("Allora riprova e scrivi bene stavolta")
+                break 
+            else:
+                continue
+        if prob == "si":
+            print("Aggiungeremo la parola al dizionario")
+            new_key = input("Nome della parola")
+            new_def = input("Definizione")
+            meme.update({new_key:new_def})
+            print("La parola è stata inserita correttamente")
+
+for i in range(int(input("Quante volte vuoi cercare una parola?"))):
+    servizio_dizionario()
